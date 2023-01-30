@@ -26,7 +26,15 @@ fun main(args: Array<String>) {
                     con.lrange(clave, 0, -1).forEach { println("\t"+it) }
                 }
 
-                "set" -> con.get(lista[userIndex]).forEach { println(it) }
+                "set" ->{
+                    println(clave)
+                    con.smembers(clave).forEach { println("\t"+it) }
+                }
+
+                "zset" ->{
+                    println(clave)
+                    con.zrange(clave,0,-1).forEach { println("\t$it --> ")}
+                }
             }
         }
     } while (userIndex != -1)
