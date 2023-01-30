@@ -33,7 +33,7 @@ fun main(args: Array<String>) {
 
                 "zset" ->{
                     println(clave)
-                    con.zrange(clave,0,-1).forEach { println("\t$it --> ")}
+                    con.zrangeWithScores(clave,0,-1).forEach { println("\t${it.element} --> ${it.score}")}
                 }
             }
         }
